@@ -1,0 +1,636 @@
+[
+  {
+    "intent": "greeting",
+    "questions": [
+      "hello",
+      "hi",
+      "hey",
+      "good morning",
+      "good afternoon",
+      "good evening",
+      "greetings",
+      "howdy",
+      "what's up",
+      "hey there",
+      "hi there"
+    ],
+    "answer": "Hello! Welcome to our support chatbot. I can help you with course purchases, certificates, login issues, refunds, and more. What would you like help with today?"
+  },
+  {
+    "intent": "farewell",
+    "questions": [
+      "bye",
+      "goodbye",
+      "thank you",
+      "thanks",
+      "see you later",
+      "take care",
+      "cheers",
+      "appreciate it",
+      "thanks for help",
+      "thank you so much",
+      "that's all",
+      "done thanks"
+    ],
+    "answer": "You are welcome! Happy learning. Feel free to come back anytime you need help."
+  },
+  {
+    "intent": "bot_identity",
+    "questions": [
+      "who are you",
+      "what are you",
+      "what is this chatbot",
+      "are you a bot",
+      "what can you do",
+      "are you human",
+      "are you an AI",
+      "what kind of bot are you"
+    ],
+    "answer": "I am your course support assistant. I can answer questions about your account, courses, payments, certificates, and more. Feel free to ask if you have any questions."
+  },
+  {
+    "intent": "bot_capabilities",
+    "questions": [
+      "what can you help me with",
+      "what do you do",
+      "what topics do you cover",
+      "what questions can I ask",
+      "what support do you provide",
+      "how can you help me",
+      "what are your features",
+      "what can I ask you"
+    ],
+    "answer": "I can help you with account login, course enrollment, purchase status, course validity, certificate requests, refund queries, password reset, and general FAQs. Type your question to get started."
+  },
+  {
+    "intent": "course_enrollment",
+    "questions": [
+      "how do I enroll in a course",
+      "how to join a course",
+      "how to register for a course",
+      "sign up for course",
+      "how to start a course",
+      "how to take a course",
+      "how to purchase a course",
+      "how to enroll",
+      "I want to join a course",
+      "how do I sign up for a course",
+      "how to buy a course",
+      "steps to enroll in a course"
+    ],
+    "answer": "Go to the course page and click Enroll for Free or Subscribe. Follow the on-screen steps to complete enrollment. Once enrolled, the course will appear under My Courses."
+  },
+  {
+    "intent": "self_paced_learning",
+    "questions": [
+      "are courses self paced",
+      "can I finish faster",
+      "can I learn at my own speed",
+      "flexible learning schedule",
+      "can I complete course at my own pace",
+      "how long does it take to finish a course",
+      "can I learn anytime",
+      "is there a deadline to complete the course",
+      "do courses have a time limit",
+      "can I take my time to finish"
+    ],
+    "answer": "Yes, all courses are self-paced. You can learn on your own schedule and finish faster than the estimated duration if you dedicate more hours per day. Your familiarity with the subject also affects how quickly you complete it."
+  },
+  {
+    "intent": "save_course_later",
+    "questions": [
+      "how to save a course for later",
+      "bookmark a course",
+      "save course for later",
+      "how to bookmark a course",
+      "can I save a course to watch later",
+      "how to add course to wishlist",
+      "save course option"
+    ],
+    "answer": "The Save for Later option is available for learners enrolled through a sponsored account or learning program. Open the course description page and click Save for Later to bookmark it."
+  },
+  {
+    "intent": "access_enrolled_course",
+    "questions": [
+      "how do I access a course I already enrolled in",
+      "how to find my enrolled courses",
+      "where are my courses",
+      "how to open my course",
+      "how to continue a course I started",
+      "where can I find courses I joined",
+      "how to go back to my course",
+      "I cannot find my enrolled course",
+      "where is my course"
+    ],
+    "answer": "Log in to your account and go to My Courses. All your enrolled courses will be listed there. Click on any course to continue where you left off."
+  },
+  {
+    "intent": "multiple_courses",
+    "questions": [
+      "can I enroll in multiple courses at the same time",
+      "take more than one course simultaneously",
+      "can I do two courses at once",
+      "can I join multiple courses",
+      "is there a limit on how many courses I can take",
+      "can I study multiple courses together"
+    ],
+    "answer": "Yes, you can enroll in multiple courses simultaneously. All active courses will be accessible from your My Courses dashboard."
+  },
+  {
+    "intent": "re_enroll_expired",
+    "questions": [
+      "how do I re-enroll in a course after subscription expired",
+      "renew subscription",
+      "rejoin course",
+      "how to rejoin expired course",
+      "how to restart a course after expiry",
+      "my subscription expired how to continue",
+      "course access expired how to renew",
+      "how to re-subscribe to a course"
+    ],
+    "answer": "Go to My Purchases, update your payment method, and re-subscribe. Alternatively, visit the course page and click Enroll for Free to restart the payment process. Your previous course progress will be saved."
+  },
+  {
+    "intent": "reactivate_subscription",
+    "questions": [
+      "how do I reactivate inactive subscription",
+      "resume subscription",
+      "restart subscription",
+      "how to activate my subscription again",
+      "my subscription is inactive",
+      "subscription not active how to fix",
+      "how to turn on subscription again"
+    ],
+    "answer": "Go to My Purchases and update your payment to reactivate your subscription. If you are unable to reactivate, open any assignment and click Upgrade to Submit. Then follow the instructions shown on the screen."
+  },
+  {
+    "intent": "save_progress",
+    "questions": [
+      "will my course progress be saved if I pause",
+      "will I lose my progress if I stop",
+      "will progress be saved",
+      "does progress save automatically",
+      "if I stop learning will I lose progress",
+      "can I take a break and resume later",
+      "is my progress saved when I log out"
+    ],
+    "answer": "Yes, your course progress is automatically saved. You can resume from where you left off at any time after logging back in."
+  },
+  {
+    "intent": "switch_course",
+    "questions": [
+      "can I switch to a different course after enrolling",
+      "change course",
+      "unenroll from course",
+      "how to unenroll from a course",
+      "how to leave a course",
+      "how to drop a course",
+      "can I change my course",
+      "how to remove a course"
+    ],
+    "answer": "You can enroll in a different course at any time. If you wish to unenroll from a current course, go to My Courses, select the course, and look for the unenroll option in the settings."
+  },
+  {
+    "intent": "get_certificate",
+    "questions": [
+      "how do I get my course completion certificate",
+      "how to get certificate after finishing course",
+      "how to receive certificate",
+      "earn certificate",
+      "how to get certified after completing course",
+      "how will I get certificate once I finish course",
+      "how to obtain certificate",
+      "how to get certificate",
+      "how to get certified",
+      "when do I get my certificate",
+      "certificate after completing course",
+      "how to get course certificate",
+      "I finished the course how do I get certificate",
+      "where is my certificate after completing course"
+    ],
+    "answer": "Complete all required assignments, quizzes, and graded items in the course. Once you meet the passing criteria, your certificate will be automatically generated and available under My Certificates."
+  },
+  {
+    "intent": "download_certificate",
+    "questions": [
+      "where can I download my certificate",
+      "how to download certificate",
+      "get certificate PDF",
+      "how to save my certificate",
+      "where to find my certificate",
+      "how to get certificate PDF",
+      "download my course certificate",
+      "where is my certificate stored"
+    ],
+    "answer": "Go to My Certificates in your account dashboard. Click on the certificate you want and select Download to save it as a PDF."
+  },
+  {
+    "intent": "missing_certificate",
+    "questions": [
+      "I completed the course but did not receive my certificate",
+      "course finished no certificate",
+      "missing certificate",
+      "why did I not get certificate after completing course",
+      "certificate not generated",
+      "I finished course but no certificate",
+      "certificate not showing after completion",
+      "completed course certificate not received"
+    ],
+    "answer": "Please ensure all graded assignments have been submitted and passed. If all requirements are met and the certificate is still missing, contact our support team with your course name and completion date."
+  },
+  {
+    "intent": "share_certificate_linkedin",
+    "questions": [
+      "can I share my certificate on LinkedIn",
+      "add certificate to LinkedIn profile",
+      "how to add certificate to LinkedIn",
+      "how to share certificate on LinkedIn",
+      "LinkedIn certificate sharing",
+      "post certificate on LinkedIn"
+    ],
+    "answer": "Yes. Open your certificate from My Certificates and click Add to LinkedIn Profile. This will directly add the credential to your LinkedIn profile."
+  },
+  {
+    "intent": "missing_badge",
+    "questions": [
+      "I did not receive my completion badge",
+      "missing badge",
+      "no badge after course",
+      "where is my badge",
+      "why did I not get a badge",
+      "badge not received",
+      "completion badge missing",
+      "I finished course but no badge"
+    ],
+    "answer": "For individual course badges, allow up to 48 hours after receiving your certificate. For Specialization or Professional Certificate badges, badges are issued every Friday so please wait up to one week. If you still have not received your badge after the waiting period, contact our support team."
+  },
+  {
+    "intent": "audit_certificate",
+    "questions": [
+      "can I get a certificate if I only audit a course",
+      "free audit certificate",
+      "do audit learners get certificate",
+      "certificate for free course",
+      "does auditing give certificate",
+      "can I get certified by auditing",
+      "is certificate available for audit"
+    ],
+    "answer": "No. Certificates are only issued to learners who are enrolled in a paid plan or have applied for financial aid. Auditing a course gives you access to course materials but does not include a certificate."
+  },
+  {
+    "intent": "change_name_certificate",
+    "questions": [
+      "how can I change my name on my certificate",
+      "wrong name on certificate",
+      "update name on certificate",
+      "name change certificate",
+      "how to fix name on certificate",
+      "my name is wrong on certificate",
+      "how to update name on certificate"
+    ],
+    "answer": "If you have completed name verification, go to Settings and click Request Name Change to update your last name. If you verified using a government ID, you must contact the support team via the Contact Us form. Please note that names appear in ALL CAPITAL LETTERS on certificates."
+  },
+  {
+    "intent": "wrong_name_certificate",
+    "questions": [
+      "my certificate shows the wrong name",
+      "fix name on certificate",
+      "incorrect name on certificate",
+      "certificate has wrong name",
+      "how to correct name on certificate",
+      "certificate name is incorrect",
+      "wrong name printed on certificate"
+    ],
+    "answer": "If you verified your name using a government ID, contact the support team via the Contact Us form to request a name correction. If you have not yet verified, go to Settings, click Request Name Change, update your name, and then regenerate the certificate."
+  },
+  {
+    "intent": "create_account",
+    "questions": [
+      "how do I create an account",
+      "sign up",
+      "register new account",
+      "how to make an account",
+      "how to open an account",
+      "create new account",
+      "how to register",
+      "I want to create an account",
+      "new user registration",
+      "how to get started"
+    ],
+    "answer": "Click the Sign Up button on the homepage, enter your details, and verify your email via the confirmation link sent to your inbox to activate your account."
+  },
+  {
+    "intent": "login_issue",
+    "questions": [
+      "I cannot log in to my account",
+      "login problem",
+      "unable to login",
+      "sign in issue",
+      "login not working",
+      "cannot sign in",
+      "trouble logging in",
+      "I am unable to login",
+      "login page not working",
+      "my login is not working",
+      "I cannot access my account"
+    ],
+    "answer": "Please check that your email and password are entered correctly. If the issue persists, use the Forgot Password option on the login page to reset your credentials."
+  },
+  {
+    "intent": "reset_password",
+    "questions": [
+      "how do I reset my password",
+      "forgot password",
+      "recover password",
+      "I forgot my password",
+      "password reset link",
+      "how to get new password",
+      "I lost my password",
+      "send password reset email",
+      "how to recover my account password",
+      "password reset not working"
+    ],
+    "answer": "Click Forgot Password on the login page, enter your registered email address, and follow the reset link sent to your inbox. The link is valid for 24 hours."
+  },
+  {
+    "intent": "change_password",
+    "questions": [
+      "how do I change my password",
+      "update password",
+      "set new password",
+      "how to update my password",
+      "change current password",
+      "I want to change my password",
+      "how to set a new password"
+    ],
+    "answer": "Go to Account Settings, then Security, then Change Password. Enter your current password followed by your new password and confirm the change."
+  },
+  {
+    "intent": "update_email",
+    "questions": [
+      "how do I update my email address",
+      "change email",
+      "new email",
+      "how to change my email address",
+      "update email in account",
+      "I want to change my email",
+      "how to update email"
+    ],
+    "answer": "Go to Account Settings then Profile and update your email address. A confirmation link will be sent to your new email. Click it to verify the change."
+  },
+  {
+    "intent": "delete_account",
+    "questions": [
+      "how do I delete my account",
+      "remove account",
+      "close account",
+      "permanently delete account",
+      "deactivate account",
+      "I want to delete my account",
+      "how to remove my account",
+      "account deletion request"
+    ],
+    "answer": "Account deletion is permanent. Please contact our support team via the Contact Us form to request account deletion. We recommend downloading your important data before proceeding."
+  },
+  {
+    "intent": "account_locked",
+    "questions": [
+      "my account has been locked",
+      "account locked",
+      "too many failed login attempts",
+      "unlock account",
+      "how to unlock my account",
+      "account is blocked",
+      "account suspended",
+      "my account is locked how to unlock"
+    ],
+    "answer": "Accounts are locked after multiple failed login attempts. Please wait 30 minutes and try again. If the issue continues, contact our support team to unlock your account."
+  },
+  {
+    "intent": "verification_email",
+    "questions": [
+      "I did not receive my email verification link",
+      "resend verification email",
+      "verification email not received",
+      "how to verify email",
+      "email confirmation not received",
+      "verification link not in inbox",
+      "resend confirmation email",
+      "I did not get verification email"
+    ],
+    "answer": "Please check your spam or junk folder. If not found, go to the login page and click Resend Verification Email. Make sure the email address you registered with is correct."
+  },
+  {
+    "intent": "update_profile",
+    "questions": [
+      "how do I update my profile information",
+      "edit profile",
+      "change profile details",
+      "update my name",
+      "update bio",
+      "update photo",
+      "update profile picture",
+      "how to edit my profile",
+      "change my display name"
+    ],
+    "answer": "Go to Account Settings then Profile. You can update your display name, bio, profile photo, and other details from there."
+  },
+  {
+    "intent": "payment_methods",
+    "questions": [
+      "what payment methods are accepted",
+      "how can I pay",
+      "payment options",
+      "which cards are accepted",
+      "how to pay for a course",
+      "accepted payment modes",
+      "do you accept UPI",
+      "can I pay with credit card",
+      "what are the payment options available"
+    ],
+    "answer": "We accept credit cards, debit cards, net banking, UPI, and select digital wallets. All available payment options are displayed at the checkout page."
+  },
+  {
+    "intent": "payment_failed",
+    "questions": [
+      "my payment failed",
+      "payment not working",
+      "transaction failed",
+      "payment unsuccessful",
+      "why did my payment fail",
+      "card declined",
+      "payment error",
+      "unable to complete payment",
+      "payment is not going through"
+    ],
+    "answer": "Please verify that your card details and billing address are correct and that sufficient funds are available. Try again or use a different payment method. If the issue persists, contact our support team."
+  },
+  {
+    "intent": "payment_deducted_not_enrolled",
+    "questions": [
+      "money was deducted but enrollment was not confirmed",
+      "payment deducted not enrolled",
+      "charged but not enrolled",
+      "amount deducted but course not activated",
+      "money cut but not enrolled",
+      "payment done but course not activated",
+      "I paid but course not showing",
+      "money deducted but I am not enrolled"
+    ],
+    "answer": "This can occur due to a payment gateway timeout. The amount is typically refunded within 5 to 7 business days. Please contact support with your transaction ID if the refund does not appear within that time."
+  },
+  {
+    "intent": "get_invoice",
+    "questions": [
+      "how do I get an invoice for my purchase",
+      "download invoice",
+      "billing receipt",
+      "how to get bill for course purchase",
+      "where is my invoice",
+      "how to download my invoice",
+      "I need a receipt for my payment",
+      "how to get payment receipt"
+    ],
+    "answer": "Your invoice is automatically sent to your registered email after a successful payment. You can also download it from My Purchases. Open your order and click Download Invoice."
+  },
+  {
+    "intent": "video_not_loading",
+    "questions": [
+      "course videos are not loading",
+      "buffering",
+      "video not playing",
+      "slow video",
+      "video stuck",
+      "video not working",
+      "cannot watch video",
+      "video keeps buffering",
+      "course video not opening",
+      "lecture video not playing"
+    ],
+    "answer": "Please try clearing your browser cache, switching to a different browser, checking your internet connection, or lowering the video quality from the player settings. If the issue continues, contact technical support."
+  },
+  {
+    "intent": "assignment_submission",
+    "questions": [
+      "I cannot submit my assignment",
+      "unable to submit assignment",
+      "submission not working",
+      "assignment submission failed",
+      "how to submit assignment",
+      "submit button not working",
+      "assignment not submitting",
+      "I am unable to submit my quiz"
+    ],
+    "answer": "Ensure you are enrolled in the paid version of the course. If you are on a free audit, you will need to upgrade to submit graded work. Click Upgrade to Submit on the assignment page and follow the instructions."
+  },
+  {
+    "intent": "course_content_issue",
+    "questions": [
+      "the course content is not displaying correctly",
+      "course not loading",
+      "display issue",
+      "course page not opening",
+      "content not visible",
+      "course material not showing",
+      "course content blank",
+      "course page is empty"
+    ],
+    "answer": "Try refreshing the page or clearing your browser cache. If the issue persists across browsers, please contact our support team with a screenshot and your browser and device details."
+  },
+  {
+    "intent": "course_error",
+    "questions": [
+      "I am getting an error message when trying to access my course",
+      "error accessing course",
+      "course showing error",
+      "cannot open course",
+      "course access error",
+      "error when opening course",
+      "getting error on course page"
+    ],
+    "answer": "Note down the exact error message and contact our support team with your course name, account email, and the error details. We will investigate and resolve the issue promptly."
+  },
+  {
+    "intent": "mobile_app_issue",
+    "questions": [
+      "the mobile app is not working properly",
+      "app crashing",
+      "app not opening",
+      "mobile issue",
+      "app keeps crashing",
+      "app freezing",
+      "app not responding",
+      "mobile app problem",
+      "app is slow",
+      "app not loading"
+    ],
+    "answer": "Try force-closing the app and reopening it. If the issue persists, uninstall and reinstall the latest version of the app from your device app store. Contact support if the problem continues."
+  },
+  {
+    "intent": "community_info",
+    "questions": [
+      "what is the course community",
+      "how can community help me",
+      "learner community",
+      "discussion forum",
+      "how to use community section",
+      "what is the community tab",
+      "how does the community work"
+    ],
+    "answer": "The Community is a platform where learners can engage with each other, discuss course topics, ask questions, and share experiences. It is a great place to seek help and connect with fellow learners. You can access it from the Community tab on the website."
+  },
+  {
+    "intent": "post_in_community",
+    "questions": [
+      "how do I post a question in the community",
+      "create post in forum",
+      "ask question in community",
+      "how to write a post in community",
+      "how to start a discussion",
+      "how to post in forum",
+      "how to ask a question in community"
+    ],
+    "answer": "Go to the Community section, select the relevant topic or course forum, and click Create a Post. Write your question clearly and submit it. Community guides and fellow learners will respond."
+  },
+  {
+    "intent": "contact_support",
+    "questions": [
+      "how do I contact customer support",
+      "reach support",
+      "help desk",
+      "contact us",
+      "how to talk to support team",
+      "how to get help from support",
+      "how to raise a support ticket",
+      "I need help from support",
+      "how to contact help center"
+    ],
+    "answer": "You can reach our support team via the Contact Us form on the website, through live chat, or by email. Visit the Help Center for all available contact options."
+  },
+  {
+    "intent": "support_response_time",
+    "questions": [
+      "how long does it take to get a response from support",
+      "response time",
+      "support reply time",
+      "how fast does support reply",
+      "when will support respond",
+      "how many hours for support reply",
+      "support response time"
+    ],
+    "answer": "Our support team typically responds within 24 to 48 business hours. For urgent issues, we recommend using the live chat option for faster assistance."
+  },
+  {
+    "intent": "no_support_reply",
+    "questions": [
+      "I submitted a support request but have not heard back",
+      "no reply from support",
+      "ticket not answered",
+      "support not responding",
+      "why is support not replying",
+      "my support ticket is not answered",
+      "I raised a ticket but got no response"
+    ],
+    "answer": "Please check your spam or junk folder for a response email. If you still have not received a reply after 48 business hours, please submit a new request."
+  }
+]
