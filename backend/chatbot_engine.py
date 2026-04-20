@@ -13,9 +13,10 @@ from config import Config
 logger = logging.getLogger(__name__)
 
 FALLBACK_RESPONSE = (
-    "I'm sorry, I couldn't find a relevant answer to your question. "
-    "Could you please rephrase it or ask about courses, certificates, "
-    "payments, account, or support?"
+    "I'm sorry, I couldn’t understand your request. You can try asking in a "
+    "different way or explore topics like courses, payments, certificates, or "
+    "account help. If you need further assistance, you can contact our "
+    "support team at support@yourplatform.com."
 )
 
 SYNONYM_MAP = {
@@ -28,8 +29,8 @@ SYNONYM_MAP = {
     "after finishing": "after completing",
     "when i finish": "after completing",
     "after i complete": "after completing",
-    "join": "enroll", "joining": "enroll", "enrollment": "enroll",
-    "enrolled": "enroll", "register": "enroll", "registration": "enroll",
+    "joining": "enroll", "enrollment": "enroll",
+    "register": "enroll", "registration": "enroll",
     "signup": "sign up",
     "login": "log in", "signin": "sign in",
     "cant login": "cannot log in", "cant sign in": "cannot log in",
@@ -44,18 +45,16 @@ SYNONYM_MAP = {
     "charge": "payment", "charged": "payment",
     "money deducted": "amount deducted",
     "money cut": "amount deducted",
-    "get": "download", "obtain": "download", "receive": "download",
-    "earn": "earn",
+    "obtain": "receive",
     "helpdesk": "support", "help desk": "support",
     "reach": "contact",
-    "app": "mobile app", "mobile": "mobile app", "phone": "mobile app",
     "videos": "video", "lecture": "video", "lectures": "video",
     "quiz": "assignment", "quizzes": "assignment",
     "test": "assignment", "exam": "assignment",
     "submission": "submit", "submitting": "submit",
     "forum": "community", "discussion": "community",
     "badges": "badge", "achievement": "badge",
-    "plan": "subscription", "expired": "expired", "inactive": "inactive",
+    "expired": "expired", "inactive": "inactive",
     "photo": "profile", "pic": "profile", "picture": "profile",
     "locked": "locked", "delete": "delete", "remove": "delete",
     "deactivate": "delete",
@@ -69,11 +68,10 @@ STOP_WORDS = {
     "will", "what", "where", "when", "why", "to", "in", "on", "of",
     "for", "and", "or", "not", "be", "are", "was", "were", "have",
     "has", "had", "this", "that", "with", "from", "at", "me", "we",
-    "you", "your", "our", "their", "if", "so", "but", "just", "get",
+    "you", "your", "our", "their", "if", "so", "but", "just",
     "got", "did", "does", "am", "im", "ive", "id", "its", "please",
-    "want", "need", "help", "tell", "show", "give", "let", "make",
-    "about", "after", "before", "during", "while", "then", "than",
-    "also", "still", "already", "again", "back", "up", "down",
+    "want", "need", "let",
+    "also", "than",
 }
 
 
@@ -156,6 +154,140 @@ class ChatbotEngine:
         if not cleaned:
             return FALLBACK_RESPONSE
 
+        # Exact phrase match — catches short all-stopword queries TF-IDF misses
+        EXACT_INTENT_MAP = {
+            "what can you do": "bot_capabilities",
+            "what do you do": "bot_capabilities",
+            "how can you help me": "bot_capabilities",
+            "what can you help me with": "bot_capabilities",
+            "what can i ask you": "bot_capabilities",
+            "who are you": "bot_identity",
+            "what are you": "bot_identity",
+            "are you a bot": "bot_identity",
+            "are you human": "bot_identity",
+            "are you an ai": "bot_identity",
+            "hello": "greeting",
+            "hi": "greeting",
+            "hey": "greeting",
+            "good morning": "greeting",
+            "good afternoon": "greeting",
+            "good evening": "greeting",
+            "bye": "farewell",
+            "goodbye": "farewell",
+            "thank you": "farewell",
+            "thanks": "farewell",
+            "thats all": "farewell",
+            "how to access enrolled courses": "access_enrolled_course",
+            "access enrolled courses": "access_enrolled_course",
+            "where are my courses": "access_enrolled_course",
+            "show my courses": "access_enrolled_course",
+            "show my enrolled courses": "access_enrolled_course",
+            "find my enrolled courses": "access_enrolled_course",
+            "find my courses": "access_enrolled_course",
+            "where are my enrolled courses": "access_enrolled_course",
+            "how to find my enrolled courses": "access_enrolled_course",
+            "how to see my courses": "access_enrolled_course",
+            "how to see my enrolled courses": "access_enrolled_course",
+            "how to view my courses": "access_enrolled_course",
+            "how to view my enrolled courses": "access_enrolled_course",
+            "how to continue learning": "access_enrolled_course",
+            "how to continue my course": "access_enrolled_course",
+            "how do i continue learning": "access_enrolled_course",
+            "continue learning": "access_enrolled_course",
+            "continue my course": "access_enrolled_course",
+            "how to resume my course": "access_enrolled_course",
+            "resume my course": "access_enrolled_course",
+            "how to go back to my course": "access_enrolled_course",
+            "go back to my course": "access_enrolled_course",
+            "open my course": "access_enrolled_course",
+            "open my enrolled course": "access_enrolled_course",
+            "how to open my course": "access_enrolled_course",
+            "how to get back to my course": "access_enrolled_course",
+            "how to access my course": "access_enrolled_course",
+            "access my course": "access_enrolled_course",
+            "how to get access again": "access_enrolled_course",
+            "how to get access back": "access_enrolled_course",
+            "get access again": "access_enrolled_course",
+            "how do i access my enrolled course": "access_enrolled_course",
+            "how do i find my courses": "access_enrolled_course",
+            "how do i find my enrolled courses": "access_enrolled_course",
+            "where can i find my courses": "access_enrolled_course",
+            "i cannot find my course": "access_enrolled_course",
+            "i cant find my course": "access_enrolled_course",
+            "where is my course": "access_enrolled_course",
+            "how to continue learing": "access_enrolled_course",
+            "how to continue lerning": "access_enrolled_course",
+            "course is expired how to rejoin": "re_enroll_expired",
+            "course expired how to rejoin": "re_enroll_expired",
+            "my course expired": "re_enroll_expired",
+            "course expired": "re_enroll_expired",
+            "how to rejoin expired course": "re_enroll_expired",
+            "can i continue after course end": "re_enroll_expired",
+            "can i continue after course ends": "re_enroll_expired",
+            "can i continue after subscription ends": "re_enroll_expired",
+            "subscription expired": "re_enroll_expired",
+            "my subscription expired": "re_enroll_expired",
+            "course access expired": "re_enroll_expired",
+            "how to rejoin course": "re_enroll_expired",
+            "rejoin course": "re_enroll_expired",
+            "renew subscription": "re_enroll_expired",
+            "will my progress be saved": "save_progress",
+            "is my progress saved": "save_progress",
+            "does progress save automatically": "save_progress",
+            "where is my certificate": "download_certificate",
+            "download my certificate": "download_certificate",
+            "show my certificate": "download_certificate",
+            "how to get certificate": "get_certificate",
+            "how do i get my certificate": "get_certificate",
+            "how to earn certificate": "get_certificate",
+            "how to pay for a course": "course_enrollment",
+            "how to pay for course": "course_enrollment",
+            "step by step procedure to pay for course": "course_enrollment",
+            "how to purchase a course": "course_enrollment",
+            "how to buy a course": "course_enrollment",
+            "switching course possible": "switch_course",
+            "how to change enrolled courses": "switch_course",
+            "how to cancle course enrollment": "unenroll_course",
+            "how to cancel course enrollment": "unenroll_course",
+            "how to remove my enrollled courses": "unenroll_course",
+            "how to remove my enrolled courses": "unenroll_course",
+            "remove course from my courses": "unenroll_course",
+            "how to remove course from my courses": "unenroll_course",
+            "how to pay": "payment_methods",
+            "payment methods": "payment_methods",
+            "how can i pay": "payment_methods",
+            "is there a deadline to complete course": "course_schedule_and_duration",
+            "is there any limit in enrolling courses": "multiple_courses",
+            "how to resume course": "access_enrolled_course",
+            "what can this chatbot do": "bot_capabilities",
+            "what can the bot do": "bot_capabilities",
+            "how to enroll in courses": "course_enrollment",
+            "how can i enroll in courses": "course_enrollment",
+            "can i take my time to finish": "self_paced_learning",
+            "can i watch lectures anytime": "self_paced_learning",
+            "where can i access my course": "access_enrolled_course",
+            "how to cancel enrollment in a course": "unenroll_course",
+            "how to get certified": "get_certificate",
+            "when do i get my certificate": "get_certificate",
+            "certificate not generated": "missing_certificate",
+            "how do i register an account": "create_account",
+            "how to register for an account": "create_account",
+            "how can i register for an account": "create_account",
+            "how can i pay for my purchase": "payment_methods",
+            "payment completed but enrollment not confirmed": "payment_deducted_not_enrolled",
+            "course is not opening": "course_content_not_loading",
+            "how to get in courses": "course_enrollment",
+            "how to join courses": "course_enrollment",
+            "i finished the course now the requiremnets to get certified": "get_certificate",
+            "my account is not opening": "login_issue",
+            "how to satrt discussion in community": "post_in_community",
+        }
+        if cleaned in EXACT_INTENT_MAP:
+            target = EXACT_INTENT_MAP[cleaned]
+            for i, intent in enumerate(self.intents):
+                if intent == target:
+                    return self.answers[i]
+
         expanded = self._expand(cleaned)
         query_words = set(expanded.split())
 
@@ -167,8 +299,15 @@ class ChatbotEngine:
             for q in self.combined_questions
         ]
 
+        # Give more weight to keyword overlap for short queries
+        word_count = len(cleaned.split())
+        if word_count <= 4:
+            tfidf_weight, overlap_weight = 0.5, 0.5
+        else:
+            tfidf_weight, overlap_weight = 0.65, 0.35
+
         combined = [
-            0.7 * tfidf_scores[i] + 0.3 * overlap_scores[i]
+            tfidf_weight * tfidf_scores[i] + overlap_weight * overlap_scores[i]
             for i in range(len(self.combined_questions))
         ]
 

@@ -60,3 +60,7 @@ coverage.xml
 # ── Misc ──────────────────────────────────────────────────────────────────────
 *.bak
 *.tmp
+scratch.py
+scratch_out.txt
+scratch_out_utf8.txt
+test_errors.txt

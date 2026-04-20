@@ -13,5 +13,5 @@ class Config:
     )
     CORS_ORIGINS = os.getenv("CORS_ORIGINS", "*")
     # Combined score threshold (TF-IDF 70% + keyword overlap 30%)
-    SIMILARITY_THRESHOLD = float(os.getenv("SIMILARITY_THRESHOLD", 0.20))
+    SIMILARITY_THRESHOLD = float(os.getenv("SIMILARITY_THRESHOLD", 0.17))
     MAX_MESSAGE_LENGTH = int(os.getenv("MAX_MESSAGE_LENGTH", 500))
